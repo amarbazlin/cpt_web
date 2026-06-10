@@ -126,7 +126,6 @@ export default function Hero() {
                         maxWidth: '100%',
                         maxHeight: '100%',
                         objectFit: 'contain',
-                        filter: 'brightness(0) invert(1)',
                       }}
                     />
                   </div>

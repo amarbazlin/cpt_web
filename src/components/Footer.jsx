@@ -83,7 +83,7 @@ export default function Footer() {
           {/* Links */}
           <div>
             <h4 style={{ color: 'white', fontWeight: 600, fontSize: '0.88rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Navigation</h4>
-            {[['Home', '/'], ['About', '/about'], ['Products', '/#products'], ['Gallery', '/#gallery'], ['Contact', '/#contact']].map(([label, to]) => (
+            {[['Home', '/'], ['About', '/about'], ['Products', '/#products'], ['Contact', '/#contact']].map(([label, to]) => (
               <Link key={label} to={to} style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', fontSize: '0.88rem', marginBottom: '0.75rem', transition: 'color 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.color = '#E84040'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
