@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 
 const stats = [
-  { number: '500+', label: 'Products In Stock' },
-  { number: '5+', label: 'Premium Brands' },
+  { number: '1500+', label: 'Products In Stock' },
+  { number: '15+', label: 'Premium Brands' },
   { number: '2026', label: 'Established' },
   { number: '167/B1', label: 'Old Tangalle Rd, Matara' },
 ]

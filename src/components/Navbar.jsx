@@ -19,7 +19,6 @@ export default function Navbar() {
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Products', to: '/#products' },
-    { label: 'Gallery', to: '/#gallery' },
     { label: 'Contact', to: '/#contact' },
   ]
 
@@ -48,25 +47,39 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
-          {navLinks.map(link => (
-            <li key={link.label}>
-              <Link
-                to={link.to}
-                style={{
-                  fontWeight: 500,
-                  fontSize: '0.88rem',
-                  letterSpacing: '0.04em',
-                  color: location.pathname === link.to ? '#B61C1C' : '#1A1A1A',
-                  textDecoration: 'none',
-                  padding: '0.3rem 0',
-                  borderBottom: location.pathname === link.to ? '2px solid #B61C1C' : '2px solid transparent',
-                  transition: 'color 0.2s, border-color 0.2s',
-                }}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {navLinks.map(link => {
+            const isActive = location.pathname === link.to
+            return (
+              <li key={link.label}>
+                <Link
+                  to={link.to}
+                  onClick={() => {
+                    // Scroll to section if on home page with hash link
+                    if (link.to.startsWith('/#') && location.pathname === '/') {
+                      const id = link.to.replace('/#', '')
+                      setTimeout(() => {
+                        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+                      }, 0)
+                    }
+                  }}
+                  style={{
+                    fontWeight: 500,
+                    fontSize: '0.88rem',
+                    letterSpacing: '0.04em',
+                    color: isActive ? '#B61C1C' : '#1A1A1A',
+                    textDecoration: 'none',
+                    padding: '0.3rem 0',
+                    borderBottom: isActive ? '2px solid #B61C1C' : '2px solid transparent',
+                    transition: 'color 0.2s, border-color 0.2s',
+                  }}
+                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#B61C1C' }}
+                  onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = '#1A1A1A' }}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            )
+          })}
           <li>
             <a href="tel:+94412223298" className="btn-primary" style={{ padding: '0.6rem 1.25rem', fontSize: '0.82rem' }}>
               <Phone size={14} /> Call Us
@@ -89,17 +102,35 @@ export default function Navbar() {
         borderTop: '1px solid #f0eded',
         boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
       }}>
-        {navLinks.map(link => (
-          <Link key={link.label} to={link.to} style={{
-            padding: '0.875rem 0',
-            borderBottom: '1px solid #f0eded',
-            fontWeight: 500,
-            color: location.pathname === link.to ? '#B61C1C' : '#1A1A1A',
-            textDecoration: 'none',
-          }}>
-            {link.label}
-          </Link>
-        ))}
+        {navLinks.map(link => {
+          const isActive = location.pathname === link.to
+          return (
+            <Link
+              key={link.label}
+              to={link.to}
+              onClick={() => {
+                if (link.to.startsWith('/#') && location.pathname === '/') {
+                  const id = link.to.replace('/#', '')
+                  setTimeout(() => {
+                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+                  }, 0)
+                }
+              }}
+              style={{
+                padding: '0.875rem 0',
+                borderBottom: '1px solid #f0eded',
+                fontWeight: 500,
+                color: isActive ? '#B61C1C' : '#1A1A1A',
+                textDecoration: 'none',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#B61C1C' }}
+              onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = '#1A1A1A' }}
+            >
+              {link.label}
+            </Link>
+          )
+        })}
         <a href="tel:+94412223298" className="btn-primary" style={{ marginTop: '1.25rem', justifyContent: 'center' }}>
           <Phone size={15} /> +94 41 222 3298
         </a>
