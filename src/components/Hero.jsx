@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
+
+const brands = [
+  'Bosch', 'Tolsen', 'Asianpaints', 'Humhon',
+  'Belucci', 'Hasky', 'Kevin', 'Melwa',
+  'National_PVC', 'Rhino', 'S-lon', 'wokin',
+]
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false)
@@ -85,41 +91,62 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Brand badges */}
+          {/* Brand logos */}
           <div style={{
             marginTop: '3rem',
-            display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center',
             opacity: loaded ? 1 : 0,
             transition: 'all 0.8s ease 0.85s',
           }}>
-            <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.15em', textTransform: 'uppercase', marginRight: '0.5rem' }}>Authorised Dealer</span>
-            {['Bosch', 'Tolsen', 'Lesso', 'Asian Paints', 'Humhon'].map(b => (
-              <span key={b} style={{
-                background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(6px)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                color: 'white', padding: '0.3rem 0.75rem',
-                borderRadius: '3px', fontSize: '0.78rem', fontWeight: 600,
-              }}>{b}</span>
-            ))}
+            <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
+              Authorised Dealer
+            </span>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))',
+              gap: '0.75rem',
+              alignItems: 'center',
+            }}>
+              {brands.map(b => {
+                const ext = b === 'Rhino' || b === 'wokin' ? 'jpg' : 'png'
+                return (
+                  <div key={b} style={{
+                    background: 'rgba(255,255,255,0.12)',
+                    borderRadius: '6px',
+                    padding: '0.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: 60,
+                    border: '1px solid rgba(255,255,255,0.15)',
+                  }}>
+                    <img
+                      src={`/images/Logo/${b}.${ext}`}
+                      alt={b}
+                      style={{
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        objectFit: 'contain',
+                        filter: 'brightness(0) invert(1)',
+                      }}
+                    />
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll cue */}
-      <a href="#products" style={{
-        position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)',
-        color: 'rgba(255,255,255,0.6)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.35rem',
-        textDecoration: 'none', fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase',
-        animation: 'bounce 2s infinite',
-      }}>
-        <span>Scroll</span>
-        <ChevronDown size={18} />
-      </a>
-
       <style>{`
-        @keyframes bounce {
-          0%, 100% { transform: translateX(-50%) translateY(0); }
-          50% { transform: translateX(-50%) translateY(6px); }
+        @media (max-width: 480px) {
+          .container > div > div:last-of-type > div {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 0.5rem !important;
+          }
+          .container > div > div:last-of-type > div > div {
+            height: 50px !important;
+            padding: 0.35rem !important;
+          }
         }
       `}</style>
     </section>

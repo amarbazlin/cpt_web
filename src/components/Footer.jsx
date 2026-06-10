@@ -94,9 +94,37 @@ export default function Footer() {
           {/* Brands */}
           <div>
             <h4 style={{ color: 'white', fontWeight: 600, fontSize: '0.88rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Our Brands</h4>
-            {['Bosch', 'Tolsen', 'Asian Paints', 'Lesso', 'Humhon', 'Bellucci', 'Giant'].map(b => (
-              <div key={b} style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.88rem', marginBottom: '0.75rem' }}>{b}</div>
-            ))}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+              {[
+                { name: 'Bosch', ext: 'png' },
+                { name: 'Tolsen', ext: 'png' },
+                { name: 'Asianpaints', ext: 'png' },
+                { name: 'Humhon', ext: 'png' },
+                { name: 'Belucci', ext: 'png' },
+                { name: 'Hasky', ext: 'png' },
+                { name: 'Kevin', ext: 'png' },
+                { name: 'Melwa', ext: 'png' },
+                { name: 'National_PVC', ext: 'png' },
+                { name: 'Rhino', ext: 'jpg' },
+                { name: 'S-lon', ext: 'png' },
+                { name: 'wokin', ext: 'jpg' },
+              ].map(b => (
+                <img
+                  key={b.name}
+                  src={`/images/Logo/${b.name}.${b.ext}`}
+                  alt={b.name}
+                  style={{
+                    width: '100%',
+                    height: 40,
+                    objectFit: 'contain',
+                    filter: 'brightness(0) invert(0.55)',
+                    transition: 'filter 0.2s',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.filter = 'brightness(0) invert(1)'}
+                  onMouseLeave={e => e.currentTarget.style.filter = 'brightness(0) invert(0.55)'}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Contact */}
