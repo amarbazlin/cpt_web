@@ -153,14 +153,8 @@ export default function AboutPage() {
                     backgroundSize: 'cover',
                     backgroundPosition: 'top center',
                     border: '3px solid rgba(255,255,255,0.4)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontFamily: 'Playfair Display, serif',
-                    fontSize: '1.5rem', fontWeight: 800,
-                    color: 'white', marginBottom: '0.75rem',
-                    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                  }}>
-                    {member.initials}
-                  </div>
+                    marginBottom: '0.75rem',
+                  }} />
                   <div style={{
                     background: 'rgba(255,255,255,0.15)',
                     padding: '0.25rem 0.875rem',
