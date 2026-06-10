@@ -17,7 +17,7 @@ export default function Hero() {
       {/* Background image */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: 'url(/images/shop-exterior.jpg)',
+        backgroundImage: 'url(/images/interior.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center 30%',
         transform: 'scale(1.04)',
@@ -68,7 +68,7 @@ export default function Hero() {
             transform: loaded ? 'none' : 'translateY(20px)',
             transition: 'all 0.8s ease 0.5s',
           }}>
-            Sri Lanka's premier hardware and construction products store — power tools, paints, PVC, sanitary ware, and more. Built for homeowners, contractors, and builders.
+            Sri Lanka's premier hardware and construction products store - power tools, paints, PVC, sanitary ware, and more. Built for homeowners, contractors, and builders.
           </p>
 
           <div style={{

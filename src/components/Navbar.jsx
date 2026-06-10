@@ -26,9 +26,9 @@ export default function Navbar() {
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-      background: scrolled ? 'rgba(255,255,255,0.97)' : 'rgba(255,255,255,0)',
-      boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.08)' : 'none',
-      backdropFilter: scrolled ? 'blur(12px)' : 'none',
+      background: 'rgba(255,255,255,1)',
+      boxShadow: '0 2px 20px rgba(0,0,0,0.08)',
+      backdropFilter: 'none',
       transition: 'all 0.35s ease',
     }}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
