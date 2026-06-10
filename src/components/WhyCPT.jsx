@@ -29,9 +29,9 @@ export default function WhyCPT() {
     <section className="section" style={{ background: '#1A1A1A', color: 'white' }} ref={ref}>
       <div className="container">
         {/* Stats bar */}
-        <div style={{
+        <div className="why-stats-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
           gap: '1px',
           background: 'rgba(255,255,255,0.08)',
           borderRadius: '8px',
@@ -54,17 +54,17 @@ export default function WhyCPT() {
           ))}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+        <div className="why-content-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
           <div className="hidden-left">
             <div className="section-eyebrow" style={{ color: '#E84040' }}>Why Choose CPT</div>
             <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', fontWeight: 700, color: 'white', lineHeight: 1.2, marginBottom: '1.25rem' }}>
-              Built for the People<br />Who <span style={{ color: '#E84040' }}>Build Sri Lanka</span>
+              Built for the People<br className="why-br" />Who <span style={{ color: '#E84040' }}>Build Sri Lanka</span>
             </h2>
             <div className="red-line" />
             <p style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.8, fontSize: '0.95rem', maxWidth: 480 }}>
               Ceylon Platinum Trading was founded with one purpose: to give builders, contractors, and homeowners in Southern Sri Lanka access to professional-grade hardware without compromising on quality or price.
             </p>
-            <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
+            <div className="why-cta" style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
               <a href="tel:+94412223298" className="btn-primary">Call +94 41 222 3298</a>
             </div>
           </div>
@@ -92,7 +92,17 @@ export default function WhyCPT() {
 
       <style>{`
         @media (max-width: 768px) {
-          .why-grid { grid-template-columns: 1fr !important; }
+          .why-content-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .why-content-grid > div:first-child { order: 1; }
+          .why-content-grid > div:last-child { order: 2; }
+          .why-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .why-stats-grid > div:nth-child(2) { border-right: none !important; }
+          .why-br { display: none; }
+          .why-cta { justify-content: center; }
+        }
+        @media (max-width: 480px) {
+          .why-stats-grid { grid-template-columns: repeat(2, 1fr) !important; margin-bottom: 3rem !important; }
+          .why-stats-grid > div { padding: 1.25rem 0.75rem !important; }
         }
       `}</style>
     </section>

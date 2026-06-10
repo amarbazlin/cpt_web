@@ -73,7 +73,7 @@ export default function AboutPage() {
       {/* Our Story section */}
       <section className="section" style={{ background: 'white' }} ref={ref}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+          <div className="about-story-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
             <div className="hidden-left">
               <div className="section-eyebrow">Who We Are</div>
               <h2 className="section-title">Hardware Excellence,<br /><span>Southern Sri Lanka</span></h2>
@@ -86,7 +86,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="hidden-right" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className="about-cards-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               {[
                 { icon: <Target size={24} />, title: 'Our Mission', text: 'To be the most trusted hardware partner for builders across Southern Sri Lanka.' },
                 { icon: <Award size={24} />, title: 'Quality First', text: 'Every brand we carry is vetted for durability, performance, and after-sales support.' },
@@ -120,18 +120,18 @@ export default function AboutPage() {
             <div className="red-line hidden-anim" style={{ margin: '0 auto' }} />
           </div>
 
-          <div style={{ maxWidth: 700, margin: '0 auto', position: 'relative' }}>
-            <div style={{ position: 'absolute', left: 28, top: 0, bottom: 0, width: 2, background: '#f0eded' }} />
+          <div className="milestones-container" style={{ maxWidth: 700, margin: '0 auto', position: 'relative' }}>
+            <div className="timeline-line" style={{ position: 'absolute', left: 28, top: 0, bottom: 0, width: 2, background: '#f0eded' }} />
             {milestones.map((m, i) => (
-              <div key={i} className="hidden-anim" style={{ transitionDelay: `${i * 0.1}s`, display: 'flex', gap: '2rem', marginBottom: '2.5rem', alignItems: 'flex-start', position: 'relative' }}>
-                <div style={{
+              <div key={i} className="timeline-item hidden-anim" style={{ transitionDelay: `${i * 0.1}s`, display: 'flex', gap: '2rem', marginBottom: '2.5rem', alignItems: 'flex-start', position: 'relative' }}>
+                <div className="timeline-year" style={{
                   flexShrink: 0, width: 56, height: 56,
                   background: '#B61C1C', borderRadius: '50%',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: 'white', fontFamily: 'Playfair Display, serif',
                   fontSize: '0.75rem', fontWeight: 800, zIndex: 1,
                 }}>{m.year}</div>
-                <div style={{ padding: '0.75rem 0', borderBottom: '1px solid #f0eded', flex: 1 }}>
+                <div className="timeline-content" style={{ padding: '0.75rem 0', borderBottom: '1px solid #f0eded', flex: 1 }}>
                   <p style={{ color: '#1A1A1A', lineHeight: 1.7, fontSize: '0.95rem' }}>{m.event}</p>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div className="board-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             {board.map((member, i) => (
               <div key={i} className="hidden-scale" style={{
                 transitionDelay: `${i * 0.12}s`,
@@ -231,7 +231,13 @@ export default function AboutPage() {
 
       <style>{`
         @media (max-width: 768px) {
-          .about-story { grid-template-columns: 1fr !important; }
+          .about-story-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .about-cards-grid { grid-template-columns: 1fr !important; }
+          .timeline-item { gap: 1rem !important; }
+          .timeline-year { width: 44px !important; height: 44px !important; font-size: 0.65rem !important; }
+          .timeline-line { left: 22px !important; }
+          .timeline-content p { font-size: 0.88rem !important; }
+          .board-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>
