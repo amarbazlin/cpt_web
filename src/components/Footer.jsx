@@ -117,11 +117,11 @@ export default function Footer() {
                     width: '100%',
                     height: 40,
                     objectFit: 'contain',
-                    filter: 'brightness(0) invert(0.55)',
-                    transition: 'filter 0.2s',
+                    opacity: 0.7,
+                    transition: 'opacity 0.2s',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.filter = 'brightness(0) invert(1)'}
-                  onMouseLeave={e => e.currentTarget.style.filter = 'brightness(0) invert(0.55)'}
+                  onMouseEnter={e => e.currentTarget.style.opacity = '1'}
+                  onMouseLeave={e => e.currentTarget.style.opacity = '0.7'}
                 />
               ))}
             </div>
