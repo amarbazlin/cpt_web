@@ -107,35 +107,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Milestones */}
-      <section className="section" style={{ background: 'var(--cream)' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <div className="section-eyebrow hidden-anim">Our Journey</div>
-            <h2 className="section-title hidden-anim">Key <span>Milestones</span></h2>
-            <div className="red-line hidden-anim" style={{ margin: '0 auto' }} />
-          </div>
-
-          <div className="milestones-container" style={{ maxWidth: 700, margin: '0 auto', position: 'relative' }}>
-            <div className="timeline-line" style={{ position: 'absolute', left: 28, top: 0, bottom: 0, width: 2, background: '#f0eded' }} />
-            {milestones.map((m, i) => (
-              <div key={i} className="timeline-item hidden-anim" style={{ transitionDelay: `${i * 0.1}s`, display: 'flex', gap: '2rem', marginBottom: '2.5rem', alignItems: 'flex-start', position: 'relative' }}>
-                <div className="timeline-year" style={{
-                  flexShrink: 0, width: 56, height: 56,
-                  background: '#B61C1C', borderRadius: '50%',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'white', fontFamily: 'Playfair Display, serif',
-                  fontSize: '0.75rem', fontWeight: 800, zIndex: 1,
-                }}>{m.year}</div>
-                <div className="timeline-content" style={{ padding: '0.75rem 0', borderBottom: '1px solid #f0eded', flex: 1 }}>
-                  <p style={{ color: '#1A1A1A', lineHeight: 1.7, fontSize: '0.95rem' }}>{m.event}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Board Members */}
       <section className="section" style={{ background: 'white' }}>
         <div className="container">
@@ -161,7 +132,7 @@ export default function AboutPage() {
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,0.1)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = ''; e.currentTarget.style.transform = '' }}
               >
-                {/* Avatar with initials */}
+                {/* Avatar with photo */}
                 <div style={{
                   height: 200,
                   background: `linear-gradient(135deg, #B61C1C 0%, #8B1414 100%)`,
@@ -171,19 +142,22 @@ export default function AboutPage() {
                 }}>
                   <div style={{
                     position: 'absolute', inset: 0,
-                    backgroundImage: i === 0 ? 'url(/images/team-photo.jpg)' : 'none',
+                    backgroundImage: `url(${member.photo})`,
                     backgroundSize: 'cover', backgroundPosition: 'top center',
                     opacity: 0.15,
                   }} />
                   <div style={{
                     width: 80, height: 80,
                     borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.15)',
+                    backgroundImage: `url(${member.photo})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'top center',
                     border: '3px solid rgba(255,255,255,0.4)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontFamily: 'Playfair Display, serif',
                     fontSize: '1.5rem', fontWeight: 800,
                     color: 'white', marginBottom: '0.75rem',
+                    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
                   }}>
                     {member.initials}
                   </div>
@@ -229,10 +203,6 @@ export default function AboutPage() {
         @media (max-width: 768px) {
           .about-story-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
           .about-cards-grid { grid-template-columns: 1fr !important; }
-          .timeline-item { gap: 1rem !important; }
-          .timeline-year { width: 44px !important; height: 44px !important; font-size: 0.65rem !important; }
-          .timeline-line { left: 22px !important; }
-          .timeline-content p { font-size: 0.88rem !important; }
           .board-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
