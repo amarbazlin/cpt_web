@@ -6,6 +6,7 @@ const board = [
     name: 'Bazlin Salih',
     role: 'Chairman',
     linkedin: 'https://www.linkedin.com/in/bazlin-salih-959873244/',
+    photo: '/images/bazlinsalih.jpg',
     bio: 'Bazlin Salih is the founder and Chairman of Ceylon Platinum Trading (PVT) Ltd, bringing decades of entrepreneurial leadership and deep-rooted experience in Sri Lanka\'s hardware and construction materials sector. With a strong commercial vision, he established CPT to raise the standard of hardware retail in the Southern Province — creating a one-stop destination offering premium brands, expert service, and genuine quality. His leadership has been pivotal in building strategic relationships with international brands including Bosch, Asian Paints, Lesso, and Tolsen, positioning CPT as one of Matara\'s most trusted hardware destinations since its 2026 launch.',
     initials: 'BS',
   },
@@ -13,6 +14,7 @@ const board = [
     name: 'Himaz Bazlin',
     role: 'Director',
     linkedin: 'https://www.linkedin.com/in/himaz-bazlin-0996731b3/',
+    photo: '/images/Logo/himazbalin.jpeg',
     bio: 'Himaz Bazlin serves as Director of Ceylon Platinum Trading, overseeing day-to-day operations and retail management at the Matara showroom. With hands-on involvement in procurement, supplier relations, and customer engagement, Himaz is instrumental in maintaining CPT\'s high standards of service and product availability. His practical knowledge of the construction trade and genuine commitment to customer satisfaction have made him a trusted figure among the contractors and builders who rely on CPT for their projects across the Southern Province.',
     initials: 'HB',
   },
@@ -20,16 +22,10 @@ const board = [
     name: 'Amar Bazlin',
     role: 'Director',
     linkedin: 'https://www.linkedin.com/in/amar-bazlin/',
+    photo: '/images/Logo/amarbazlin.png',
     bio: 'Amar Bazlin is a Director of Ceylon Platinum Trading and the founder of Forgera, an AI automation company building intelligent business operations platforms for Sri Lankan SMEs. A Computer Science undergraduate at the University of Colombo (Staffordshire University / APIIT Sri Lanka) and a nationally ranked swimmer, Amar brings a technology-forward perspective to CPT\'s operations — driving digital presence, brand strategy, and data-driven business improvements. His dual expertise in software development and hardware distribution is shaping CPT\'s growth into a modern, technology-enabled retail business.',
     initials: 'AB',
   },
-]
-
-const milestones = [
-  { year: '2026', event: 'Ceylon Platinum Trading founded in Matara, Southern Province.' },
-  { year: '2026', event: 'Authorised dealer agreements secured with Bosch, Tolsen, Asian Paints (Causeway), Lesso, and Humhon.' },
-  { year: '2026', event: 'Grand opening of the flagship showroom at 167/B1 Old Tangalle Road, Matara.' },
-  { year: '2026', event: 'In-store Asian Paints custom colour mixing station installed — the first in the region.' },
 ]
 
 export default function AboutPage() {
