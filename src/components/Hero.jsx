@@ -97,8 +97,11 @@ export default function Hero() {
         }
         @media (max-width: 480px) {
           section > div:first-of-type {
-            background-size: auto 140% !important;
-            background-position: center 10% !important;
+            background-image: none !important;
+            background: #1a1a1a !important;
+          }
+          section > div:nth-child(2) {
+            background: linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(182,28,28,0.3) 100%) !important;
           }
         }
       `}</style>
