@@ -93,12 +93,14 @@ export default function Hero() {
           section > div:first-of-type {
             background-size: auto 120% !important;
             background-position: center 20% !important;
+            transform: none !important;
           }
         }
         @media (max-width: 480px) {
           section > div:first-of-type {
             background-image: none !important;
             background: #1a1a1a !important;
+            transform: none !important;
           }
           section > div:nth-child(2) {
             background: linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(182,28,28,0.3) 100%) !important;

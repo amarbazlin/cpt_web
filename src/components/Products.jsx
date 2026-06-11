@@ -75,7 +75,7 @@ export default function Products() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '1.5rem',
         }}>
           {categories.map((cat, i) => (

@@ -23,30 +23,19 @@ export default function Navbar() {
   ]
 
   return (
-    <nav style={{
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-      background: 'rgba(255,255,255,1)',
-      boxShadow: '0 2px 20px rgba(0,0,0,0.08)',
-      backdropFilter: 'none',
-      transition: 'all 0.35s ease',
-    }}>
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
+    <nav className="navbar">
+      <div className="container navbar-inner">
         {/* Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-          <img src="/images/logo.png" alt="CPT Logo" style={{ height: 48, width: 'auto' }} />
-          <div style={{ lineHeight: 1.2 }}>
-            <div style={{
-              fontFamily: 'Playfair Display, serif',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              color: scrolled ? '#1A1A1A' : '#1A1A1A',
-            }}>Ceylon Platinum Trading</div>
-            <div style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.12em', color: '#B61C1C', textTransform: 'uppercase' }}>(PVT) Ltd</div>
+        <Link to="/" className="navbar-brand">
+          <img src="/images/logo.png" alt="CPT Logo" className="navbar-logo" />
+          <div className="navbar-title">
+            <div className="navbar-name">Ceylon Platinum Trading</div>
+            <div className="navbar-sub">(PVT) Ltd</div>
           </div>
         </Link>
 
         {/* Desktop links */}
-        <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
+        <ul className="desktop-nav">
           {navLinks.map(link => {
             const isActive = location.pathname === link.to
             return (
@@ -54,7 +43,6 @@ export default function Navbar() {
                 <Link
                   to={link.to}
                   onClick={() => {
-                    // Scroll to section if on home page with hash link
                     if (link.to.startsWith('/#') && location.pathname === '/') {
                       const id = link.to.replace('/#', '')
                       setTimeout(() => {
@@ -62,18 +50,7 @@ export default function Navbar() {
                       }, 0)
                     }
                   }}
-                  style={{
-                    fontWeight: 500,
-                    fontSize: '0.88rem',
-                    letterSpacing: '0.04em',
-                    color: isActive ? '#B61C1C' : '#1A1A1A',
-                    textDecoration: 'none',
-                    padding: '0.3rem 0',
-                    borderBottom: isActive ? '2px solid #B61C1C' : '2px solid transparent',
-                    transition: 'color 0.2s, border-color 0.2s',
-                  }}
-                  onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#B61C1C' }}
-                  onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = '#1A1A1A' }}
+                  className={`nav-link${isActive ? ' active' : ''}`}
                 >
                   {link.label}
                 </Link>
@@ -81,27 +58,20 @@ export default function Navbar() {
             )
           })}
           <li>
-            <a href="tel:+94412223298" className="btn-primary" style={{ padding: '0.6rem 1.25rem', fontSize: '0.82rem' }}>
+            <a href="tel:+94412223298" className="btn-primary nav-cta">
               <Phone size={14} /> Call Us
             </a>
           </li>
         </ul>
 
         {/* Mobile hamburger */}
-        <button onClick={() => setOpen(!open)} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'none', color: '#1A1A1A' }} className="hamburger">
+        <button onClick={() => setOpen(!open)} className="hamburger">
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
       {/* Mobile menu */}
-      <div style={{
-        display: open ? 'flex' : 'none',
-        flexDirection: 'column',
-        background: 'white',
-        padding: '1rem 1.5rem 2rem',
-        borderTop: '1px solid #f0eded',
-        boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
-      }}>
+      <div className={`mobile-menu${open ? ' open' : ''}`}>
         {navLinks.map(link => {
           const isActive = location.pathname === link.to
           return (
@@ -117,30 +87,138 @@ export default function Navbar() {
                 }
               }}
               style={{
-                padding: '0.875rem 0',
+                padding: '0.875rem 1.5rem',
                 borderBottom: '1px solid #f0eded',
                 fontWeight: 500,
                 color: isActive ? '#B61C1C' : '#1A1A1A',
                 textDecoration: 'none',
-                transition: 'color 0.2s',
+                display: 'block',
               }}
-              onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#B61C1C' }}
-              onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = '#1A1A1A' }}
             >
               {link.label}
             </Link>
           )
         })}
-        <a href="tel:+94412223298" className="btn-primary" style={{ marginTop: '1.25rem', justifyContent: 'center' }}>
+        <a href="tel:+94412223298" className="btn-primary" style={{ margin: '1.25rem 1.5rem', justifyContent: 'center', display: 'flex' }}>
           <Phone size={15} /> +94 41 222 3298
         </a>
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          background: white;
+          box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .navbar-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 72px;
+        }
+        .navbar-brand {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          text-decoration: none;
+          min-width: 0;
+          flex-shrink: 1;
+          flex: 1;
+        }
+        .navbar-logo {
+          height: 48px;
+          width: auto;
+          flex-shrink: 0;
+        }
+        .navbar-title {
+          line-height: 1.2;
+          min-width: 0;
+          overflow: hidden;
+        }
+        .navbar-name {
+          font-family: 'Playfair Display', serif;
+          font-weight: 700;
+          font-size: 0.95rem;
+          color: #1A1A1A;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .navbar-sub {
+          font-size: 0.7rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          color: #B61C1C;
+          text-transform: uppercase;
+        }
+        .desktop-nav {
+          display: flex;
+          gap: 2rem;
+          list-style: none;
+          align-items: center;
+          flex-shrink: 0;
+        }
+        .nav-link {
+          font-weight: 500;
+          font-size: 0.88rem;
+          letter-spacing: 0.04em;
+          color: #1A1A1A;
+          text-decoration: none;
+          padding: 0.3rem 0;
+          border-bottom: 2px solid transparent;
+          transition: color 0.2s, border-color 0.2s;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+          color: #B61C1C;
+          border-bottom-color: #B61C1C;
+        }
+        .nav-cta {
+          padding: 0.6rem 1.25rem !important;
+          font-size: 0.82rem !important;
+        }
+        .hamburger {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #1A1A1A;
+          flex-shrink: 0;
+        }
+        .mobile-menu {
+          display: none;
+          flex-direction: column;
+          background: white;
+          border-top: 1px solid #f0eded;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        .mobile-menu.open {
+          display: flex;
+        }
+
+        @media (max-width: 850px) {
           .desktop-nav { display: none !important; }
           .hamburger { display: flex !important; }
         }
+
+        @media (max-width: 500px) {
+          .navbar-inner { height: 56px; padding: 0 1rem; }
+          .navbar-logo { height: 32px; }
+          .navbar-title { overflow: hidden; }
+          .navbar-name { font-size: 0.78rem; overflow: hidden; text-overflow: ellipsis; }
+          .navbar-sub { font-size: 0.58rem; }
+          .navbar-brand { gap: 0.4rem; }
+        }
+
+        @media (max-width: 400px) {
+          .navbar-name { font-size: 0.7rem; }
+          .navbar-logo { height: 28px; }
+        }
+
       `}</style>
     </nav>
   )
