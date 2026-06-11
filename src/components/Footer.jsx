@@ -108,6 +108,7 @@ export default function Footer() {
                 { name: 'Rhino', ext: 'jpg' },
                 { name: 'S-lon', ext: 'png' },
                 { name: 'wokin', ext: 'jpg' },
+                { name: 'wipro', ext: 'png' },
               ].map(b => (
                 <img
                   key={b.name}
