@@ -26,7 +26,7 @@ export default function Footer() {
       {/* CTA Banner */}
       <div style={{
         background: '#B61C1C',
-        padding: '3rem 0',
+        padding: '2rem 0',
         textAlign: 'center',
       }}>
         <div className="container">
@@ -43,8 +43,8 @@ export default function Footer() {
       </div>
 
       {/* Footer main */}
-      <div className="container" style={{ padding: '4rem 1.5rem 2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
+      <div className="container" style={{ padding: '2.5rem 1.5rem 1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1.8fr 1.8fr', gap: '3rem', marginBottom: '2rem' }}>
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
@@ -80,21 +80,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '0.88rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Navigation</h4>
-            {[['Home', '/'], ['About', '/about'], ['Products', '/#products'], ['Contact', '/#contact']].map(([label, to]) => (
-              <Link key={label} to={to} style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', fontSize: '0.88rem', marginBottom: '0.75rem', transition: 'color 0.2s' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#E84040'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
-              >{label}</Link>
-            ))}
-          </div>
-
           {/* Brands */}
           <div>
             <h4 style={{ color: 'white', fontWeight: 600, fontSize: '0.88rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Our Brands</h4>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.75rem' }}>
               {[
                 { name: 'Bosch', ext: 'png' },
                 { name: 'Tolsen', ext: 'png' },
